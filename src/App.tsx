@@ -10,7 +10,6 @@ import Projects from "./pages/Projects";
 import Certifications from "./pages/Certifications";
 import Blog from "./pages/Blog";
 
-
 function App() {
   return (
     <Routes>
@@ -26,7 +25,7 @@ function App() {
         <Route path="blog" element={<Blog />} />
 
         {/* 404 fallback */}
-        <Route path="*" element={<Navigate to="/about" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );
