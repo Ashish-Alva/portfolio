@@ -254,7 +254,7 @@ const Experience: React.FC = () => {
 
       {/* 3D Deck — height set generously so the longest description always fits */}
       <div
-        className="relative w-full min-h-[360px] sm:min-h-[320px] md:min-h-[300px]"
+        className="relative w-full min-h-90 sm:min-h-80 md:min-h-75"
         style={{ perspective: "1200px" }}
       >
         <AnimatePresence>

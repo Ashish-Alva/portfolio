@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, ArrowLeft, BookOpen, Tag } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import matter from "gray-matter";
 
 interface BlogPost {
   id: number;
@@ -16,6 +15,35 @@ interface BlogPost {
   slug: string;
 }
 
+// Lightweight frontmatter parser — no Node/Buffer dependency, works in the browser.
+function parseFrontmatter(raw: string): { data: Record<string, string>; content: string } {
+  const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+  if (!match) {
+    return { data: {}, content: raw };
+  }
+
+  const [, frontmatterBlock, content] = match;
+  const data: Record<string, string> = {};
+
+  frontmatterBlock.split("\n").forEach((line) => {
+    const lineMatch = line.match(/^([^:]+):\s*(.*)$/);
+    if (lineMatch) {
+      const key = lineMatch[1].trim();
+      let value = lineMatch[2].trim();
+      // Strip surrounding quotes if present
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+      data[key] = value;
+    }
+  });
+
+  return { data, content: content.trim() };
+}
+
 const Blog = () => {
   const blogFiles = import.meta.glob("../../content/blogs/*.md", {
     query: "?raw",
@@ -26,8 +54,7 @@ const Blog = () => {
   const posts: BlogPost[] = Object.entries(blogFiles).map(
     ([path, file], index) => {
       const markdown = file as string;
-
-      const { data, content } = matter(markdown);
+      const { data, content } = parseFrontmatter(markdown);
 
       return {
         id: index + 1,
@@ -43,8 +70,6 @@ const Blog = () => {
     },
   );
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-
-
 
   return (
     <motion.div
@@ -67,64 +92,73 @@ const Blog = () => {
             <div>
               <h2 className="text-3xl font-bold text-white relative inline-block">
                 Blog
-                <span className="absolute bottom-[-8px] left-0 w-12 h-1 bg-primary rounded-full"></span>
+                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
               </h2>
             </div>
 
-            {/* Articles Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post) => (
-                <article
-                  key={post.id}
-                  onClick={() => setSelectedPost(post)}
-                  className="group bg-dark-800 rounded-2xl border border-dark-700 overflow-hidden flex flex-col cursor-pointer hover:border-primary/20 transition-all duration-300 shadow-sm"
-                >
-                  {/* Image */}
-                  <div className="relative aspect-video overflow-hidden bg-dark-900 border-b border-dark-700">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-dark-900/90 backdrop-blur-md text-[10px] font-bold text-primary border border-dark-700/50 rounded-md tracking-wider uppercase flex items-center gap-1.5">
-                      <Tag size={10} />
-                      {post.category}
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3 text-xs text-gray-500 font-semibold">
-                        <span className="flex items-center gap-1">
-                          <Calendar size={12} />
-                          {post.date}
-                        </span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-dark-700"></span>
-                        <span className="flex items-center gap-1">
-                          <Clock size={12} />
-                          {post.readTime}
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    </div>
-
-                    <div className="pt-2 text-xs font-bold text-primary group-hover:text-amber-500 transition-colors flex items-center gap-1.5">
-                      <span>Read Full Post</span>
-                      <BookOpen
-                        size={14}
-                        className="group-hover:translate-x-0.5 transition-transform"
+            {posts.length === 0 ? (
+              <p className="text-gray-400 text-sm">
+                No blog posts found yet. Add markdown files to{" "}
+                <code className="bg-dark-900 px-1.5 py-0.5 rounded-md border border-dark-700/50">
+                  content/blogs/
+                </code>
+                .
+              </p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {posts.map((post) => (
+                  <article
+                    key={post.id}
+                    onClick={() => setSelectedPost(post)}
+                    className="group bg-dark-800 rounded-2xl border border-dark-700 overflow-hidden flex flex-col cursor-pointer hover:border-primary/20 transition-all duration-300 shadow-sm"
+                  >
+                    {/* Image */}
+                    <div className="relative aspect-video overflow-hidden bg-dark-900 border-b border-dark-700">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
+                      <div className="absolute top-3 left-3 px-2.5 py-1 bg-dark-900/90 backdrop-blur-md text-[10px] font-bold text-primary border border-dark-700/50 rounded-md tracking-wider uppercase flex items-center gap-1.5">
+                        <Tag size={10} />
+                        {post.category}
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+
+                    {/* Body Content */}
+                    <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-3 text-xs text-gray-500 font-semibold">
+                          <span className="flex items-center gap-1">
+                            <Calendar size={12} />
+                            {post.date}
+                          </span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-dark-700"></span>
+                          <span className="flex items-center gap-1">
+                            <Clock size={12} />
+                            {post.readTime}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-2">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                      </div>
+
+                      <div className="pt-2 text-xs font-bold text-primary group-hover:text-amber-500 transition-colors flex items-center gap-1.5">
+                        <span>Read Full Post</span>
+                        <BookOpen
+                          size={14}
+                          className="group-hover:translate-x-0.5 transition-transform"
+                        />
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
           </motion.div>
         ) : (
           /* Full Markdown Article View */

@@ -23,6 +23,7 @@ function App() {
         <Route path="projects" element={<Projects />} />
         <Route path="certifications" element={<Certifications />} />
         <Route path="blog" element={<Blog />} />
+        
 
         {/* 404 fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

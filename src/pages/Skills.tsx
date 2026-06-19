@@ -184,7 +184,7 @@ const SkillNode: React.FC<NodeProps> = ({ category, index }) => {
         style={{ opacity, x, scale: nodeScale }}
         onHoverStart={() => setHovered(true)}
         onHoverEnd={() => setHovered(false)}
-        className={`group relative order-1 overflow-hidden rounded-[28px] border border-white/[0.06] bg-[#0b1120] p-7 md:p-8 ${
+        className={`group relative order-1 overflow-hidden rounded-[28px] border border-white/6 bg-[#0b1120] p-7 md:p-8 ${
           isEven ? "md:order-1" : "md:order-3"
         }`}
       >
@@ -214,7 +214,7 @@ const SkillNode: React.FC<NodeProps> = ({ category, index }) => {
 
         {/* Faint index number, large, bleeding off the edge */}
         <span
-          className="pointer-events-none absolute -right-2 -top-6 select-none text-[88px] font-black leading-none text-white/[0.03]"
+          className="pointer-events-none absolute -right-2 -top-6 select-none text-[88px] font-black leading-none text-white/3"
           aria-hidden="true"
         >
           {String(index + 1).padStart(2, "0")}
@@ -259,7 +259,7 @@ const SkillNode: React.FC<NodeProps> = ({ category, index }) => {
         {/* Bottom progress thread tied to this node's own scroll progress */}
         <motion.div
           style={{ scaleX: reveal, backgroundColor: category.accent }}
-          className="absolute bottom-0 left-0 h-[2px] w-full origin-left opacity-40"
+          className="absolute bottom-0 left-0 h-0.5 w-full origin-left opacity-40"
         />
       </motion.div>
 
