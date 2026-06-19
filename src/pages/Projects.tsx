@@ -1,32 +1,36 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Cpu, Bot, FileText } from "lucide-react";
+import { ExternalLink, Cloud, Activity, Zap, FileCode2 } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Telegram Media Automation",
-      category: "Python Automation",
-      icon: <Bot className="text-[#38bdf8]" size={24} />,
-      description:
-        "Python-based automation using the Telethon library to efficiently download and archive media content from specific Telegram channels.",
-      tags: ["Python", "Telethon", "API"],
-    },
-    {
-      title: "Doc Merger Script",
-      category: "Google Apps Script",
-      icon: <FileText className="text-[#38bdf8]" size={24} />,
-      description:
-        "Automated batch processing tool to merge 100+ Microsoft Word files into a master Google Doc, streamlining administrative workflows.",
-      tags: ["Apps Script", "Automation", "Google Drive"],
-    },
-    {
-      title: "AUTO AGRO AIRCRAFT",
-      category: "Innovation Project",
-      icon: <Cpu className="text-[#38bdf8]" size={24} />,
-      description:
-        "Prototype development for agricultural technology within the K-Tech NAIN Incubation Center program at MITE.",
-      tags: ["Hardware", "Innovation", "Prototype"],
-    },
+    title: "CI/CD Pipeline: Containerized Deployment",
+    category: "DevOps & Cloud",
+    icon: <Cloud className="text-[#38bdf8]" size={24} />,
+    description: "Built a GitHub Actions CI/CD pipeline for automated Docker image delivery. Orchestrated scalable deployments on AWS EC2 using Terraform for infrastructure provisioning and Kubernetes for container management.",
+    tags: ["AWS", "Docker", "Terraform", "Kubernetes", "CI/CD"],
+  },
+  {
+    title: "Document Conversion Web App",
+    category: "Full Stack (MERN)",
+    icon: <FileCode2 className="text-[#38bdf8]" size={24} />,
+    description: "Developed a full-stack MERN document conversion platform with an integrated admin panel for workflow management. Features include Docker containerization, CI/CD automated deployment, and efficient file processing.",
+    tags: ["React", "Node.js", "MongoDB", "Docker", "CI/CD"],
+  },
+  {
+    title: "Referee Support Monitoring System",
+    category: "AI/ML & IoT",
+    icon: <Activity className="text-[#fb923c]" size={24} />,
+    description: "Developed an intelligent step and zone detection system for real-time player tracking, enhancing referee decision-making accuracy and gameplay transparency.",
+    tags: ["Real-time Tracking", "Monitoring", "IoT"],
+  },
+  {
+    title: "Smart Appliance & Carbon Monitor",
+    category: "IoT & Embedded Systems",
+    icon: <Zap className="text-[#a78bfa]" size={24} />,
+    description: "Designed an IoT system using ESP32 with current (ACS712) and voltage (zmPT101B) sensors to track real-time power consumption and calculate carbon footprint metrics.",
+    tags: ["ESP32", "IoT", "Embedded", "Energy Analysis"],
+  },
   ];
 
   return (

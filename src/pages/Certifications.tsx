@@ -4,6 +4,14 @@ import { Award, Calendar, ExternalLink } from "lucide-react";
 const Certifications = () => {
   const certifications = [
     {
+      title: "Oracle Cloud Infrastructure AI Foundations",
+      issuer: "Oracle University",
+      date: "2026",
+      description:
+        "Foundational certification in AI concepts, machine learning workflows, and OCI infrastructure services.",
+      link: "#",
+    },
+    {
       title: "Salesforce Developer",
       issuer: "Salesforce Trailhead",
       date: "April 2026",
@@ -16,7 +24,31 @@ const Certifications = () => {
       issuer: "Mphasis Learning Academy",
       date: "Feb 2026",
       description:
-        "Successfully completed corporate training and 88-day internship module focusing on enterprise software standards.",
+        "Successfully completed corporate training and an 90-day internship module focusing on enterprise software development standards.",
+      link: "#",
+    },
+    {
+      title: "Tech Kabaddi: Referee Support System",
+      issuer: "Govt. of Karnataka (NAIN)",
+      date: "2025",
+      description:
+        "Designed and implemented an AI-driven step and zone detection system for automated match officiating under the NAIN incubation program.",
+      link: "#",
+    },
+    {
+      title: "Entrepreneurial Thinking",
+      issuer: "IUCEE",
+      date: "2025",
+      description:
+        "Coursework on innovation methodology, product-market fit, and entrepreneurial leadership.",
+      link: "#",
+    },
+    {
+      title: "IEEE Student Branch Coordinator",
+      issuer: "IEEE MITE",
+      date: "2023 – 2025",
+      description:
+        "Organized large-scale technical events and hackathons to foster community engagement and technical growth.",
       link: "#",
     },
   ];
@@ -57,13 +89,7 @@ const Certifications = () => {
                     <Calendar size={14} />
                     <span>{cert.date}</span>
                   </div>
-                  <a
-                    href={cert.link}
-                    className="flex items-center gap-1.5 text-[#38bdf8] hover:underline"
-                  >
-                    <ExternalLink size={14} />
-                    <span>Verify</span>
-                  </a>
+                  
                 </div>
               </div>
 

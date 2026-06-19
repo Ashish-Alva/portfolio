@@ -29,41 +29,26 @@ interface ExperienceEntry {
 }
 
 const experiences: ExperienceEntry[] = [
+  
+ 
+  
   {
     role: "Trainee Associate Software Engineer",
-    company: "Mphasis",
-    period: "Feb 2026 — Present",
-    location: "Remote / Hybrid",
+    company: "Mphasis Limited",
+    period: "Feb 2026 — May 2026",
+    location: "Pune, India",
     description:
-      "Developing and deploying enterprise-level software solutions. Participating in intensive training modules at the Mphasis Learning Academy, focusing on full-stack development and cloud-native architectures.",
+      "Developed a MERN stack Document Conversion app with Docker and CI/CD. Automated testing pipelines using Selenium and TestNG (60% QA effort reduction) and validated REST APIs in Agile/Scrum workflows.",
     accent: "#38bdf8",
   },
   {
-    role: "Webmaster",
-    company: "IEEE MITE Student Branch",
-    period: "2024 — 2025",
-    location: "Moodabidri, India",
+    role: "UI/UX Design Intern",
+    company: "Zetpeak",
+    period: "Feb 2025 — May 2025",
+    location: "Remote",
     description:
-      "Managed the official online presence for the student branch, streamlining communication channels and maintaining technical documentation for organizational events.",
-    accent: "#a78bfa",
-  },
-  {
-    role: "Incubatee",
-    company: "K-Tech NAIN Incubation Center",
-    period: "2025 — Present",
-    location: "MITE Campus",
-    description:
-      "Collaborating on innovation projects including prototype development and patent documentation. Focus on bridge-line circuits and smart storage solutions.",
-    accent: "#fb923c",
-  },
-  {
-    role: "Incubatee",
-    company: "K-Tech NAIN Incubation Center",
-    period: "2025 — Present",
-    location: "MITE Campus",
-    description:
-      "Collaborating on innovation projects including prototype development and patent documentation. Focus on bridge-line circuits and smart storage solutions.",
-    accent: "#fb923c",
+      "Designed 20+ wireframes and interactive prototypes in Figma. Standardized UI components to enhance accessibility and reduce design inconsistencies across project modules.",
+    accent: "#34d399",
   },
 ];
 
