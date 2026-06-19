@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Calendar, ExternalLink } from "lucide-react";
+import { Award, Calendar } from "lucide-react";
 
 const Certifications = () => {
   const certifications = [
@@ -89,7 +89,6 @@ const Certifications = () => {
                     <Calendar size={14} />
                     <span>{cert.date}</span>
                   </div>
-                  
                 </div>
               </div>
 
