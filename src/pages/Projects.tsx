@@ -1,13 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import {
-  FolderKanban,
-  // Github,
-  ExternalLink,
-  Cpu,
-  Bot,
-  FileText,
-} from "lucide-react";
+import { ExternalLink, Cpu, Bot, FileText } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -48,7 +40,7 @@ const Projects = () => {
       <div>
         <h2 className="text-3xl font-bold text-[#f8fafc] relative inline-block">
           Projects
-          <span className="absolute bottom-[-8px] left-0 w-12 h-1 bg-[#38bdf8] rounded-full"></span>
+          <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[#38bdf8] rounded-full"></span>
         </h2>
       </div>
 

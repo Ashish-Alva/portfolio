@@ -8,7 +8,6 @@ import {
   FolderKanban,
   Award,
   BookOpen,
-  Send,
   User,
 } from "lucide-react";
 

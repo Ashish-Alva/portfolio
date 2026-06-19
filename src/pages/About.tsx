@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Code, Database, Cpu, Layout } from "lucide-react";
 
@@ -44,7 +44,7 @@ const About = () => {
       <div className="relative">
         <h2 className="text-3xl font-bold text-white relative inline-block">
           About Me
-          <span className="absolute bottom-[-8px] left-0 w-12 h-1 bg-primary rounded-full"></span>
+          <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
         </h2>
 
         <motion.div

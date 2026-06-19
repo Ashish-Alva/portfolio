@@ -136,7 +136,7 @@ interface NodeProps {
   total: number;
 }
 
-const SkillNode: React.FC<NodeProps> = ({ category, index, total }) => {
+const SkillNode: React.FC<NodeProps> = ({ category, index }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
   const Icon = category.icon;
@@ -297,7 +297,7 @@ const Skills: React.FC = () => {
     <>
       <h2 className="relative inline-block text-3xl font-bold text-white">
         Technical skills
-        <span className="absolute bottom-[-8px] left-0 w-12 h-1 bg-primary rounded-full"></span>
+        <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></span>
       </h2>
 
       <section
@@ -316,10 +316,10 @@ const Skills: React.FC = () => {
         />
 
         {/* Spine track + animated fill, desktop only */}
-        <div className="pointer-events-none absolute left-1/2 top-[180px] hidden h-[calc(100%-220px)] w-px -translate-x-1/2 bg-white/[0.06] md:block">
+        <div className="pointer-events-none absolute left-1/2 top-45 hidden h-[calc(100%-220px)] w-px -translate-x-1/2 bg-white/6 md:block">
           <motion.div
             style={{ height: lineHeight }}
-            className="w-px bg-gradient-to-b from-sky-400 via-fuchsia-400 to-emerald-400"
+            className="w-px bg-linear-to-b from-sky-400 via-fuchsia-400 to-emerald-400"
           />
         </div>
 

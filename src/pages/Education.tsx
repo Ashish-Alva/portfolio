@@ -1,11 +1,15 @@
 import React, { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import {
   GraduationCap,
   Briefcase,
   Calendar,
   MapPin,
-  Award,
   ChevronRight,
 } from "lucide-react";
 
@@ -47,8 +51,7 @@ const education: EducationEntry[] = [
     degree: "11 - 12",
     period: "2020 - 2022",
     location: "Moodabidri, India",
-    details:
-      "Studied by PU life in Computer Science Stream",
+    details: "Studied by PU life in Computer Science Stream",
     icon: Briefcase,
     accent: "#fb923c",
     tag: "PUC",
@@ -60,8 +63,7 @@ const education: EducationEntry[] = [
     degree: "1st - 10th std",
     period: "2010 - 2020",
     location: "Mangalore, India",
-    details:
-      "Studied from 1st std to 10th",
+    details: "Studied from 1st std to 10th",
     icon: Briefcase,
     accent: "#fb923c",
     tag: "Schooling",
@@ -90,7 +92,7 @@ const Tab: React.FC<TabProps> = ({ entry, active, onSelect }) => {
       }}
     >
       {/* hover backdrop, separate from active state so both can coexist visually */}
-      <span className="absolute inset-0 rounded-xl bg-white/[0.03] opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+      <span className="absolute inset-0 rounded-xl bg-white/3 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
 
       <span className="relative flex items-center gap-3 md:gap-2.5">
         <span
@@ -120,7 +122,7 @@ const Tab: React.FC<TabProps> = ({ entry, active, onSelect }) => {
       {active && (
         <motion.span
           layoutId="tab-indicator"
-          className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full md:bottom-0 md:left-5 md:right-5"
+          className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full md:bottom-0 md:left-5 md:right-5"
           style={{ background: entry.accent }}
           transition={{ type: "spring", stiffness: 380, damping: 32 }}
         />
@@ -168,10 +170,13 @@ const MetaPill: React.FC<MetaPillProps> = ({ icon: Icon, label, accent }) => {
       style={{ x: sx, y: sy }}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      className="group flex items-center gap-1.5 rounded-full border border-[#1e293b] bg-[#0f172a] px-3 py-1.5 text-xs text-[#94a3b8] transition-colors duration-200 hover:border-[var(--accent)]/40 hover:text-[#f8fafc]"
-      style={{ ["--accent" as string]: accent }}
+      className="group flex items-center gap-1.5 rounded-full border border-[#1e293b] bg-[#0f172a] px-3 py-1.5 text-xs text-[#94a3b8] transition-colors duration-200 hover:border-(--accent)/40 hover:text-[#f8fafc]"
     >
-      <Icon size={12} className="transition-colors duration-200" style={{ color: accent }} />
+      <Icon
+        size={12}
+        className="transition-colors duration-200"
+        style={{ color: accent }}
+      />
       <span>{label}</span>
     </motion.div>
   );
@@ -217,8 +222,16 @@ const DetailPanel: React.FC<{ entry: EducationEntry }> = ({ entry }) => {
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            <MetaPill icon={Calendar} label={entry.period} accent={entry.accent} />
-            <MetaPill icon={MapPin} label={entry.location} accent={entry.accent} />
+            <MetaPill
+              icon={Calendar}
+              label={entry.period}
+              accent={entry.accent}
+            />
+            <MetaPill
+              icon={MapPin}
+              label={entry.location}
+              accent={entry.accent}
+            />
           </div>
 
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#94a3b8]">
@@ -233,8 +246,6 @@ const DetailPanel: React.FC<{ entry: EducationEntry }> = ({ entry }) => {
 // ---------------------------------------------------------------------------
 // Achievement strip — expands on hover to reveal full text
 // ---------------------------------------------------------------------------
-
-
 
 // ---------------------------------------------------------------------------
 // Section
@@ -257,7 +268,6 @@ const Education: React.FC = () => {
           Education
           <span className="absolute -bottom-2 left-0 h-1 w-12 rounded-full bg-[#38bdf8]" />
         </h2>
-        
       </div>
 
       {/* Tab selector + detail panel */}
@@ -277,7 +287,6 @@ const Education: React.FC = () => {
       </div>
 
       {/* Achievement strip */}
-      
     </motion.div>
   );
 };
