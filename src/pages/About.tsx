@@ -66,10 +66,11 @@ const About = () => {
           </p>
           <p>
             My expertise includes AWS, Docker, Kubernetes, Terraform, and Linux. I enjoy designing CI/CD pipelines and improving system reliability.
-          </p>
-          <p>
             Alongside DevOps, I have experience in Full Stack Development, enabling me to manage the complete application lifecycle.
           </p>
+          
+            
+          
         </div>
       </div>
 

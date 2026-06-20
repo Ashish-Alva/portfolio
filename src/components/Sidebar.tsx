@@ -18,62 +18,41 @@ interface SidebarProps {
 const Sidebar = ({ onClose }: SidebarProps) => {
   const contactInfo = [
     {
-      icon: <Mail className="text-primary" size={16} />,
+      icon: <Mail className="text-primary" size={16} aria-hidden="true" />,
       label: "EMAIL",
       value: "ashishalva1234@gmail.com",
       href: "mailto:ashishalva1234@gmail.com",
     },
     {
-      icon: <MapPin className="text-primary" size={16} />,
+      icon: <MapPin className="text-primary" size={16} aria-hidden="true" />,
       label: "LOCATION",
       value: "Karnataka, India",
     },
   ];
 
   const navLinks = [
-    {
-      path: "/about",
-      label: "About",
-      icon: <User size={18} />,
-    },
-    {
-      path: "/skills",
-      label: "Skills",
-      icon: <Code2 size={18} />,
-    },
-    {
-      path: "/education",
-      label: "Education",
-      icon: <GraduationCap size={18} />,
-    },
-    {
-      path: "/experience",
-      label: "Experience",
-      icon: <Briefcase size={18} />,
-    },
-    {
-      path: "/projects",
-      label: "Projects",
-      icon: <FolderKanban size={18} />,
-    },
-    {
-      path: "/certifications",
-      label: "Certifications",
-      icon: <Award size={18} />,
-    },
-    {
-      path: "/blog",
-      label: "Blog",
-      icon: <BookOpen size={18} />,
-    },
-
+    { path: "/about", label: "About", icon: <User size={18} aria-hidden="true" /> },
+    { path: "/skills", label: "Skills", icon: <Code2 size={18} aria-hidden="true" /> },
+    { path: "/education", label: "Education", icon: <GraduationCap size={18} aria-hidden="true" /> },
+    { path: "/experience", label: "Experience", icon: <Briefcase size={18} aria-hidden="true" /> },
+    { path: "/projects", label: "Projects", icon: <FolderKanban size={18} aria-hidden="true" /> },
+    { path: "/certifications", label: "Certifications", icon: <Award size={18} aria-hidden="true" /> },
+    { path: "/blog", label: "Blog", icon: <BookOpen size={18} aria-hidden="true" /> },
   ];
 
   return (
-    <aside className="fixed top-6 bottom-6 bg-dark-800 border border-dark-700 rounded-4xl px-5 py-3 flex flex-col">
+    <aside
+      aria-label="Sidebar navigation"
+      className="h-full w-full
+                 bg-dark-800 border border-dark-700 lg:rounded-4xl
+                 rounded-r-3xl lg:rounded-r-4xl
+                 px-5 py-3 flex flex-col overflow-y-auto"
+    >
       {/* Profile */}
       <div className="flex flex-col items-center text-center">
-        <h1 className="mt-3 text-3xl font-bold text-white">Ashish Alva</h1>
+        <h1 className="mt-3 text-2xl sm:text-3xl font-bold text-white">
+          Ashish Alva
+        </h1>
 
         <p className="mt-2 px-3 bg-dark-700 rounded-lg text-xs font-medium text-gray-300 border border-dark-700">
           DevOps & Cloud Engineer
@@ -83,7 +62,7 @@ const Sidebar = ({ onClose }: SidebarProps) => {
       <hr className="my-2 border-dark-700" />
 
       {/* Navigation */}
-      <nav className="flex-1 ">
+      <nav className="flex-1">
         {navLinks.map((link) => (
           <NavLink
             key={link.path}
@@ -106,10 +85,10 @@ const Sidebar = ({ onClose }: SidebarProps) => {
       <hr className="my-4 border-dark-700" />
 
       {/* Contact */}
-      <div className="space-y-3">
+      <div className="space-y-3 pb-2">
         {contactInfo.map((info, idx) => (
           <div key={idx} className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-dark-900 border border-dark-700 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-lg bg-dark-900 border border-dark-700 flex items-center justify-center shrink-0">
               {info.icon}
             </div>
 
