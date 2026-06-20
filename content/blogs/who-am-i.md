@@ -3,7 +3,7 @@ title: Who Am I?
 category: Personal
 date: 2026-06-19
 readTime: 5 min read
-excerpt: No polished facade—just real lessons, technical deep dives, and the
+excerpt: No polished facade just real lessons, technical deep dives, and the
   unfiltered reality of a young engineer finding his footing. Welcome to my
   journey of learning, building, and growing in public.
 image: /uploads/1.png
@@ -60,7 +60,11 @@ Unfortunately, many students are limited by the opportunities available to them,
 
 Because of that, I've spent a large part of my life exploring different interests and trying to discover where I truly belong.
 
-I've explored art. Who doesn’t love drawing, painting right? I tried it and as it turned out i was pretty bad at it so what did i give up NO i still do draw and that too still pretty bad but who cares, i want to do something and i do it.
+I've explored art. Who doesn’t love drawing, painting right? I tried it and as it turned out i was pretty bad at it so what?
+
+Did i give up - NO.
+
+I still draw and that too is still pretty bad but who cares, I want to do something and I do it.
 
 I bought a laptop and started experimenting with everything I could find. I tried UI/UX design, graphic design, digital art, drawing, content creation, and many other creative pursuits.
 
@@ -128,8 +132,6 @@ Thank you for taking the time to read this.
 
 This is just the beginning.
 
-Whoami 
-
-Ashish Alva
+Whoami - Ashish Alva
 
 Trying to figure out life
