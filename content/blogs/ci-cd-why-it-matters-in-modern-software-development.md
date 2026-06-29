@@ -17,17 +17,15 @@ Picture this: you and a few friends are building a LEGO city together. One perso
 
 It checks if the new piece fits. It checks if adding it will knock over something that's already standing. If everything's good, the piece gets added automatically. If something's off, the robot flags it immediately so it can be fixed before the problem snowballs. That's essentially what **CI/CD** does for software.
 
-
-
 ## So What Exactly Is CI/CD?
 
 ### Continuous Integration (CI)
 
-Every time a developer pushes code — even a small change — CI kicks in automatically. It builds the software, runs tests, and checks that nothing that was working before has suddenly broken. Instead of finding out three weeks later that two developers' work collided in a messy way, CI catches it in **minutes**.
+Every time a developer pushes code even a small change CI kicks in automatically. It builds the software, runs tests, and checks that nothing that was working before has suddenly broken. Instead of finding out three weeks later that two developers' work collided in a messy way, CI catches it in **minutes**.
 
 ## Continuous Deployment (CD)
 
-CD picks up right where CI leaves off. Once the code passes all those checks, it gets packaged up and deployed to production — no manual hand-offs, no "let me ping the ops team" delays. Users get the latest version as soon as it's ready.
+CD picks up right where CI leaves off. Once the code passes all those checks, it gets packaged up and deployed to production no manual hand-offs, no "let me ping the ops team" delays. Users get the latest version as soon as it's ready.
 
 Why Does It Actually Matter?
 
@@ -52,4 +50,4 @@ CI/CD flipped that. Releases became routine small, safe, and frequent. Teams sto
 
 At its core, CI/CD is about confidence confidence that the code works, that a change won't silently wreck production, and that you can keep delivering value to users without slowing down.
 
-Whether you're building the next SaaS product, contributing to an open-source project, or just working through your first team project in college — CI/CD is one of those things that, once you've used it, you genuinely wonder how anyone survived without it.
+Whether you're building the next SaaS product, contributing to an open-source project, or just working through your first team project in college CI/CD is one of those things that, once you've used it, you genuinely wonder how anyone survived without it.
