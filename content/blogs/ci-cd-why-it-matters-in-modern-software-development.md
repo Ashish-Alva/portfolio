@@ -21,11 +21,11 @@ It checks if the new piece fits. It checks if adding it will knock over somethin
 
 ### Continuous Integration (CI)
 
-Every time a developer pushes code — even a small change — CI kicks in automatically. It builds the software, runs tests, and checks that nothing that was working before has suddenly broken. Instead of finding out three weeks later that two developers' work collided in a messy way, CI catches it in **minutes**.
+Every time a developer pushes code even a small change CI kicks in automatically. It builds the software, runs tests, and checks that nothing that was working before has suddenly broken. Instead of finding out three weeks later that two developers' work collided in a messy way, CI catches it in **minutes**.
 
 ## Continuous Deployment (CD)
 
-CD picks up right where CI leaves off. Once the code passes all those checks, it gets packaged up and deployed to production — no manual hand-offs, no "let me ping the ops team" delays. Users get the latest version as soon as it's ready.
+CD picks up right where CI leaves off. Once the code passes all those checks, it gets packaged up and deployed to production no manual hand-offs, no "let me ping the ops team" delays. Users get the latest version as soon as it's ready.
 
 Why Does It Actually Matter?
 
